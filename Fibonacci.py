@@ -2,6 +2,9 @@
 # This imports the time class from a Python library. I will be using it to show the time it takes for the program to
 # compile.
 
+# Testing once again whether the commit works. :)
+
+
 import time
 # Start timer
 start = time.time()
