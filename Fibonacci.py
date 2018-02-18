@@ -51,3 +51,12 @@ print(listPrimeAndFib)
 # End timer and print result
 end = time.time()
 print("Your prgrams run time period was: ", end - start)
+
+#Displaying a goodbye message to let the user know that the program is over
+print("Thank you for using the Fibonnaci numbers generator")
+
+danumber = int(input("Now pick a number please\n"))
+if danumber == 1 and danumber != 0:
+    print("I like 1")
+else:
+    print("I don't like that number")
