@@ -3,43 +3,48 @@ import string
 
 tryAgain = True
 
-while(tryAgain):
+while tryAgain:
     print("Welcome to the password generator.\n")
-    length = int(input("How long would you like your password to be?\n"))
-    if length <= 0 or type(length) is not int:
-        print("That can't be!")
+    # Pwd length and strength
+    try:
+        length = int(input("How long would you like your password to be?\n"))
+    except Exception:
+        print("Invalid input type. Restarting.")
         continue
-
+    if length < 0:
+        print("Cannot have negative length. Restarting.")
+        continue
     passwordStrength = input("How strong would you like your password to be? Weak, medium or strong\n")
+    # Symbols to go in password
+    numberList = [str(i) for i in range(1,10)]
+    letterListLowerCase = list(string.ascii_lowercase)
+    letterListUpperCase = list(string.ascii_uppercase)
+    symbolsList = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '\'', '\"']
+    # Match password strength
     if passwordStrength.upper() == "STRONG":
-        numberList = [1,2,3,4,5,6,7,8,9]
-        letterListLowerCase = [list(string.ascii_lowercase)]
-        letterListUpperCase = [list(string.ascii_uppercase)]
-        symbolsList = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '\'', '\"']
-        totalList = set([numberList, leterListUpperCase, letterListLowerCase, symbolsList])
-        passList = [random.sample(totalList, length)]
-        password = str(passList)
+        totalList = numberList.copy()
+        totalList.extend(letterListUpperCase)
+        totalList.extend(letterListLowerCase)
+        totalList.extend(symbolsList)
 
     elif passwordStrength.upper() == "MEDIUM":
-        numberList = [1,2,3,4,5,6,7,8,9]
-        letterListLowerCase = [list(string.ascii_lowercase)]
-        letterListUpperCase = [list(string.ascii_uppercase)]
-        totalList = set([numberList, leterListUpperCase, letterListLowerCase])
-        passList = [random.sample(totalList, length)]
-        password = str(passList)
+        totalList = numberList.copy()
+        totalList.extend(letterListUpperCase)
+        totalList.extend(letterListLowerCase)
 
     elif passwordStrength.upper() == "WEAK":
-        numberList = [1,2,3,4,5,6,7,8,9]
-        letterListLowerCase = [list(string.ascii_lowercase)]
-        totalList = [numberList, letterListLowerCase]
-        totalSet = set()
-        for i in totalList:
-            totalSet.add(i)
-        passList = [random.sample(totalSet, length)]
-        password = str(passList)
+        totalList = numberList.copy()
+        totalList.extend(letterListLowerCase)
+
     else:
         print("Choose out of weak, medium and strong.")
         continue
+
+    # Convert to a string password
+    print(totalList)
+    passList = random.sample(totalList, length)
+    print(passList)
+    password = ''.join(passList)
 
     print("You password is {}".format(password))
     if (input("Would you like to go again (yes/no)?")).casefold() != "yes":
