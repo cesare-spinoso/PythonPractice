@@ -48,7 +48,7 @@ end = time.time()
 print("The list of the first {} fibonacci number(s) is {}".format(length, arrayFib))
 print("Of those fibonacci numbers the following are prime {}".format(listPrimeAndFib))
 # End timer and print result
-print("Your prgrams run time period was: ", end - start)
+print("Your prgrams run time period was: {}".format(end - start))
 #Displaying a goodbye message
 print("Thank you for using the Fibonnaci numbers generator")
 
