@@ -45,8 +45,8 @@ start = time.time()
 arrayFib = fibonacciSequence(length)
 listPrimeAndFib = listPrimes(arrayFib)
 end = time.time()
-print(f"The list of the first {length} fibonacci number(s) is {arrayFib}")
-print(f"Of those fibonacci numbers the following are prime {listPrimeAndFib}")
+print("The list of the first {} fibonacci number(s) is {}".format(length, arrayFib))
+print("Of those fibonacci numbers the following are prime {}".format(listPrimeAndFib))
 # End timer and print result
 print("Your prgrams run time period was: ", end - start)
 #Displaying a goodbye message
