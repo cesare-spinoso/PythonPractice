@@ -1,13 +1,8 @@
 # Prompts the user for a certain number of fibonacci numbers
-# This imports the time class from a Python library. I will be using it to show the time it takes for the program to
-# compile.
-
-# Testing once again whether the commit works. :)
-
-
+# Outputs that number of fibonacci numbers and identifies the numbers that are prime
+# Gives the user the runtime of the program.
 import time
-# Start timer
-start = time.time()
+
 def fibonacciSequence(lengthOfSequence):
     baseCase = [1,1]
     recursive = []
@@ -42,21 +37,18 @@ def listPrimes(fibList):
             newList.append(i)
     return newList
 
-
-length = int(input("Enter your desired number Of fibonacci numbers you baka head\n"))
+length = -1
+while length < 0 or type(length) is int:
+    length = int(input("Enter your desired number of fibonacci numbers.\n"))
+# Start timer
+start = time.time()
 arrayFib = fibonacciSequence(length)
 listPrimeAndFib = listPrimes(arrayFib)
-print(fibonacciSequence(length))
-print(listPrimeAndFib)
-# End timer and print result
 end = time.time()
+print(f"The list of the first {length} fibonacci number(s) is {arrayFib}")
+print(f"Of those fibonacci numbers the following are prime {listPrimeAndFib}")
+# End timer and print result
 print("Your prgrams run time period was: ", end - start)
-
-#Displaying a goodbye message to let the user know that the program is over
+#Displaying a goodbye message
 print("Thank you for using the Fibonnaci numbers generator")
 
-danumber = int(input("Now pick a number please\n"))
-if danumber == 1 and danumber != 0:
-    print("I like 1")
-else:
-    print("I don't like that number")
