@@ -6,7 +6,7 @@ tryAgain = True
 while(tryAgain):
     print("Welcome to the password generator.\n")
     length = int(input("How long would you like your password to be?\n"))
-    if length <= 0:
+    if length <= 0 or type(length) is not int:
         print("That can't be!")
         continue
 
@@ -35,12 +35,14 @@ while(tryAgain):
         totalSet = set()
         for i in totalList:
             totalSet.add(i)
-
         passList = [random.sample(totalSet, length)]
         password = str(passList)
+    else:
+        print("Choose out of weak, medium and strong.")
+        continue
 
     print("You password is {}".format(password))
-    if (input("would you like to go again")).casefold() != "yes":
+    if (input("Would you like to go again (yes/no)?")).casefold() != "yes":
         tryAgain = False
 
 print("Bye now!")
