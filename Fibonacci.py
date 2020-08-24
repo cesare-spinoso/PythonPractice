@@ -38,7 +38,7 @@ def listPrimes(fibList):
     return newList
 
 length = -1
-while length < 0 or type(length) is int:
+while length < 0 or type(length) is not int:
     length = int(input("Enter your desired number of fibonacci numbers.\n"))
 # Start timer
 start = time.time()
