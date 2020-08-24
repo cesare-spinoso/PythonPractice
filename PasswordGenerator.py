@@ -11,7 +11,7 @@ while(tryAgain):
         continue
 
     passwordStrength = input("How strong would you like your password to be? Weak, medium or strong\n")
-    if passwordStrength.casefold() == "strong":
+    if passwordStrength.upper() == "STRONG":
         numberList = [1,2,3,4,5,6,7,8,9]
         letterListLowerCase = [list(string.ascii_lowercase)]
         letterListUpperCase = [list(string.ascii_uppercase)]
@@ -20,7 +20,7 @@ while(tryAgain):
         passList = [random.sample(totalList, length)]
         password = str(passList)
 
-    elif passwordStrength.casefold() == "medium":
+    elif passwordStrength.upper() == "MEDIUM":
         numberList = [1,2,3,4,5,6,7,8,9]
         letterListLowerCase = [list(string.ascii_lowercase)]
         letterListUpperCase = [list(string.ascii_uppercase)]
@@ -28,7 +28,7 @@ while(tryAgain):
         passList = [random.sample(totalList, length)]
         password = str(passList)
 
-    elif passwordStrength.casefold() == "weak":
+    elif passwordStrength.upper() == "WEAK":
         numberList = [1,2,3,4,5,6,7,8,9]
         letterListLowerCase = [list(string.ascii_lowercase)]
         totalList = [numberList, letterListLowerCase]
