@@ -43,6 +43,7 @@ while(tryAgain):
     if (input("would you like to go again")).casefold() != "yes":
         tryAgain = False
 
+print("Bye now!")
 
 
 
